@@ -1,0 +1,11 @@
+.row {
+  display: flex;
+}
+
+.row .item {
+  width: 100%;
+}
+
+.row .item img {
+  width: 100%;
+}
