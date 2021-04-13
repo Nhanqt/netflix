@@ -5,16 +5,12 @@ import Row from '../Row';
 function Body() {
     const [movies,setMovies] = useState([]);
 
-    useEffect(() =>{
-        async function fetchData(){
-            const result = await axios.get(requests.fetchActionMovies);
-            setMovies(result.data.results)
-        }
-        fetchData();
-    }, [])
+
     return (
         <div>
-            <Row listMovies={movies} className="row"/>
+            <Row title="Action film" fetchURL={requests.fetchActionMovies}/>
+            <Row title="Trending film" fetchURL={requests.fetchTrending}/>
+            <Row title="Horror film" fetchURL={requests.fetchHorrorMovies}/>
         </div>
     )
 }

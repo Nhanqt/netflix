@@ -1,14 +1,21 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
+import axios from '../../Action/axios'
 import "./style.css";
-function Row({ listMovies }) {
-    const baseImgUrl = "https://image.tmdb.org/t/p/original";
+import SlickResponsive from '../SlickResponsive'
+function Row({fetchURL,title }) {
+    const [movies,setMovies] = useState([]);
+    useEffect(() =>{
+        console.log("useEffec runing");
+        async function fetchData(){
+            const result = await axios.get(fetchURL);
+            setMovies(result.data.results);
+        }
+        fetchData();
+    }, [])
     return (
         <div className="row">
-            {listMovies.map((item)=>{
-            return <div className="item">
-                <img src={baseImgUrl + item.poster_path} alt=""/>
-            </div>
-            })}
+            <h2>{title}</h2>
+            <SlickResponsive listFilm={movies}/>
         </div>
         
     )

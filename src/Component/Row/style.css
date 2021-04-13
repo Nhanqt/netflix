@@ -1,11 +1,11 @@
-.row {
-  display: flex;
+.row img {
+  width: 100%;
 }
 
 .row .item {
-  width: 100%;
+  transition: all 0.5s;
 }
 
-.row .item img {
-  width: 100%;
+.row .item:hover {
+  transform: scale(1.2);
 }
